@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ post.title }}</title>
+    <style>
+        .post-card {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .post-image {
+            margin-right: 10px;
+        }
+        .post-list {
+            list-style-type: decimal;
+            margin: 0;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ post.title }}</h1>
+    <div>
+        {{ content_rendered|safe }}
+    </div>
+</body>
+</html>

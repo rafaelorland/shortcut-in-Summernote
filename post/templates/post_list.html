@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Posts</title>
+    <style>
+        .post-card {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .post-image {
+            margin-right: 10px;
+        }
+        .post-list {
+            list-style-type: decimal;
+            margin: 0;
+            padding: 0;
+        }
+        .post-list li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lista de Posts</h1>
+    <div>
+        {% for post in posts %}
+            <div class="post-card">
+                <h2><a href="{% url 'post_detail' post.id %}">{{ post.title }}</a></h2>
+                {% if post.image %}
+                    <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post-image" style="max-width:100px; max-height:100px;"/>
+                {% endif %}
+            </div>
+        {% empty %}
+            <p>Nenhum post encontrado.</p>
+        {% endfor %}
+    </div>
+</body>
+</html>
